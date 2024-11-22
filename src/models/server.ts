@@ -19,15 +19,14 @@ class Server {
         this.routes();
     }
 
-    async conectarBD(){
-        try {
+     async conectarBD(){
+         try {
             db.authenticate();
             console.log('Database online');
-            
-        } catch (error) {
+         } catch (error) {
             throw new Error('Error  de coneccion');
-        }
-    }
+         }
+     }
 
     middlewares(){
         //CORS

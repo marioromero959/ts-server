@@ -10,4 +10,3 @@ router.post('/', usuario_1.postUsuario);
 router.put('/:id', usuario_1.putUsuario);
 router.delete('/:id', usuario_1.deleteUsuario);
 exports.default = router;
-//# sourceMappingURL=usuario.js.map

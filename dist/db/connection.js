@@ -6,4 +6,3 @@ const db = new sequelize_1.Sequelize('prueba', 'root', '', {
     dialect: 'mysql'
 });
 exports.default = db;
-//# sourceMappingURL=connection.js.map
