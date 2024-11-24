@@ -4,7 +4,7 @@ services:
   node-app:
     build: .
     ports:
-      - "3000:3000"  # Exponer el puerto del backend
+      - "8080:8080"  # Exponer el puerto del backend
     volumes:
       - .:/app          # Sincronizar el código local con el contenedor
       - /app/node_modules # Ignorar node_modules local para evitar conflictos
