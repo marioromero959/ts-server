@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",         // Carpeta de salida
-    "rootDir": "./src",         // Carpeta de entrada
-    "target": "es2020",         // Versión de JavaScript
-    "module": "commonjs",       // Sistema de módulos
-    "strict": true,             // Reglas estrictas
-    "esModuleInterop": true,    // Interoperabilidad con ES6
-    "resolveJsonModule": true,  // Soporte para JSON
-    "skipLibCheck": true        // Ignorar conflictos en las libs
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": [
-    "src/**/*.ts",              // Incluir archivos TypeScript
-    "src/public/**/*"           // Incluir archivos estáticos
-  ],
-  "exclude": ["node_modules"]   // Excluir dependencias
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

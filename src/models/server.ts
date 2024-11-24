@@ -38,13 +38,12 @@ class Server {
     }
 
     routes(){
-        this.app.use( this.paths.usuarios,userRoutes)
+        this.app.use(this.paths.usuarios,userRoutes)
     }
 
     listen(){
         this.app.listen(this.port,()=>{
             console.log('Servidor corriendo en puerto '+ this.port);
-            
         })
     }
 }

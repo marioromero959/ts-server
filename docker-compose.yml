@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  node-app:
+    build: .
+    ports:
+      - "3000:3000"  # Exponer el puerto del backend
+    volumes:
+      - .:/app          # Sincronizar el código local con el contenedor
+      - /app/node_modules # Ignorar node_modules local para evitar conflictos
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=yourdb
+    command: ["npx", "nodemon", "src/app.ts"] # Usar nodemon para recarga automática
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yourdb
+    ports:
+      - "3306:3306"  # Exponer el puerto de MySQL
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

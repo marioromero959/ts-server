@@ -1,8 +1,19 @@
-import { Sequelize } from 'sequelize'
+import { Sequelize } from 'sequelize';
 
-const db = new Sequelize('prueba','root','',{ //prueba es el nombre de mi bd de mysql
-    host:'localhost',//O direccion http
-    dialect:'mysql'
-})
+const sequelize = new Sequelize(
+  process.env.DB_NAME || 'yourdb',
+  process.env.DB_USER || 'root',
+  process.env.DB_PASSWORD || 'root',
+  {
+    host: process.env.DB_HOST || 'localhost',
+    dialect: 'mysql',
+    logging: false, // Opcional: desactivar logs de Sequelize
+  }
+);
 
-export default db;
+sequelize
+  .authenticate()
+  .then(() => console.log('Database connected!'))
+  .catch((err) => console.error('Error connecting to DB:', err));
+
+export default sequelize;

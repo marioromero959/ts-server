@@ -4,8 +4,9 @@ import Usuario from "../models/usuario";
 export const getUsuarios = async(req:Request, res:Response) =>{
 
     const usuarios = await Usuario.findAll()
-
-    res.json(usuarios)
+    res.json({
+        msg:'Usuario enviado'
+    })
 }
 
 export const getUsuario = async(req:Request, res:Response) =>{
