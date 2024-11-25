@@ -14,7 +14,7 @@ services:
       - DB_USER=root
       - DB_PASSWORD=root
       - DB_NAME=yourdb
-    command: ["npx", "nodemon", "src/app.ts"] # Usar nodemon para recarga automática
+    command: ["npx", "nodemon", "--legacy-watch", "src/app.ts"]
     depends_on:
       - db
 

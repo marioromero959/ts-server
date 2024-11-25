@@ -3,10 +3,15 @@ import Usuario from "../models/usuario";
 
 export const getUsuarios = async(req:Request, res:Response) =>{
 
-    const usuarios = await Usuario.findAll()
-    res.json({
-        msg:'Usuario enviado'
-    })
+    const usuarios = await Usuario.findAll();
+
+    try {
+        res.json({usuarios})        
+    } catch (error) {
+        res.status(404).json(({
+            msg:'Consulta incorrecta, solicite ayuda del soporte'
+        }))        
+    }
 }
 
 export const getUsuario = async(req:Request, res:Response) =>{
@@ -46,7 +51,6 @@ export const postUsuario = async(req:Request, res:Response) =>{
         })
     }catch (error) {
         console.log(error);
-        
         res.status(500).json({
             msg: 'Hable con el administrador'
         })        
